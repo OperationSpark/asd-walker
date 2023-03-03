@@ -86,6 +86,8 @@ All elements will have unique `id` attributes, which means that you can select t
 
 * **1a)** Change the `id` of `'gameItem'` to be `'walker'`
 
+>**NOTE:** When you do this, the box will no longer display. This will be remedied in the next step.
+
 <hr>
 
 ### **File 2: The `index.css` file**
