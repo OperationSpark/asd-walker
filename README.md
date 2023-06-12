@@ -58,6 +58,7 @@ git push
 * Challenge 1 - 5 points (bonus)
 * Challenge 2 - 5 points (bonus)
 * Challenge 3 - 10 points (bonus)
+
 **NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but these challenges will help you out much later if you can do them.
 
 # Lesson Steps
