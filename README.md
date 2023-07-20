@@ -44,7 +44,7 @@ git push
 
 ## Project Grading
 
-### Best Practices (30 points)
+### Best Practices (25 points)
 
 1. All code in proper sections (setup, core, helpers, etc.) - 5 points
 2. Use comments to describe setup and functions - 10 points
@@ -52,7 +52,7 @@ git push
 
 **NOTE:** Incomplete programs will receive partial credit based on the number of TODOs completed with the above best practices in place.
 
-### Program Progress (70 points)
+### Program Progress (75 points)
 
 - TODO 1 - 5 points
 - TODO 2 - 10 points
@@ -92,6 +92,8 @@ This produces a basic game board with a single game item on the board. If you ne
 All elements will have unique `id` attributes, which means that you can select them using the appropriate CSS selectors whenever using jQuery or CSS.
 
 - **1a)** Change the `id` of `'gameItem'` to be `'walker'`
+
+> **NOTE:** When you do this, the box will no longer display. This will be remedied in the next step.
 
 <hr>
 
@@ -244,6 +246,7 @@ Now that we have our data tracking in place, we need to use that data to actuall
 - **5c)** Call each function on each `newFrame`.
 
 **HINT:** Use the `"top"` CSS property to draw the box `y` pixels from the `"top"`
+
 **HINT:** Check what the id of the GameItem is for your jQuery statements.
 
 > Save your code and refresh the game. If you try pressing keys you'll notice that the box isn't moving.
