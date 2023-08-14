@@ -284,7 +284,7 @@ Ideally, the `walker` game item would stop moving once we release the arrow key.
 
 **CODE:**
 
-- **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` properties to `0` whenever the arrow keys are released.
+- **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` properties to `0` whenever the arrow keys are released. This will involve both creating the `handleKeyUp` event handler function and registering it.
 
 ## TODO 8: Implement Borders
 
