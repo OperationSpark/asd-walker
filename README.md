@@ -11,7 +11,7 @@ Bouncing Box, but you control the box, and it doesn't bounce!
   - [TODO 1: Understand the Template and Change the Box](#todo-1-understand-the-template-and-change-the-box)
   - [TODO 2: Register Keyboard Inputs](#todo-2-register-keyboard-inputs)
   - [TODO 3: React to Specific Keycodes](#todo-3-react-to-specific-keycodes)
-  - [TODO 4: Declare `walker` Variables](#todo-4-declare-walker-variables)
+  - [TODO 4: Declare `walker` Variable](#todo-4-declare-walker-variable)
   - [TODO 5: Declare Some Helper Functions](#todo-5-declare-some-helper-functions)
   - [TODO 6: Update `speedX` and `speedY` with the Keyboard](#todo-6-update-speedX-and-speedY-with-the-keyboard)
   - [TODO 7: Reset `speedX` and `speedY` on `"keyup"`](#todo-7-reset-speedx-and-speedy-on-keyup)
@@ -189,7 +189,7 @@ Now that we know our `"keydown"` events are being handled, let's figure out exac
 
 > **TESTING:** Save your code and refresh your application in the other window. Test it to make sure that the right messages are being printed to the console.
 
-## TODO 4: Declare `walker` Variables
+## TODO 4: Declare `walker` Variable
 
 Now that we can determine which keys are being pressed, we can move on to the problem of moving the `walker` game item.
 
@@ -200,7 +200,7 @@ var positionX = 0; // the x-coordinate location for the box
 var speedX = 0; // the speed for the box along the x-axis
 ```
 
-> NOTE: The above code was for _Bouncing Box_, not for Walker, but the idea is the same.
+> NOTE: The above code was for _Bouncing Box_, not for Walker, but the idea is similar.
 >
 > For this project, we want to be able to move along the x-axis _AND_ the y-axis.
 
@@ -209,7 +209,7 @@ Because this involves variable declarations global to the project, it should go 
 
 **CODE:**
 
-- **4a)** Declare 4 variables for the `walker` game item such that we can monitor and control the following information:
+- **4a)** Declare a variable for the `walker` game item (feel free to name the variable `walker` as well). This variable will need to store an object such that we can monitor and control the following information:
 
   - the x-coordinate location
   - the y-coordinate location
@@ -218,7 +218,7 @@ Because this involves variable declarations global to the project, it should go 
     <br>
     <br>
 
-- **4b)** Initialize each variable to hold the value `0`
+- **4b)** Initialize each of the four properties of this object to hold the value `0`
 
 ## TODO 5: Declare Some Helper Functions
 
@@ -245,26 +245,28 @@ Now that we have our data tracking in place, we need to use that data to actuall
 - **5b)** Reference the code above to complete these two functions such that they can reposition and redraw the GameItem to move along the x-axis AND the y-axis.
 - **5c)** Call each function on each `newFrame`.
 
-**HINT:** Use the `"top"` CSS property to draw the box `y` pixels from the `"top"`
+**HINT 1:** Use the `"top"` CSS property to draw the box `y` pixels from the `"top"`
 
-**HINT:** Check what the id of the GameItem is for your jQuery statements.
+**HINT 2:** Check what the id of the GameItem is for your jQuery statements.
+
+**HINT 3:** Keep in mind that you have an object storing your data this time. There are no "positionX", "speedX", ect. variables, so you will need to use the properties of your object.
 
 > Save your code and refresh the game. If you try pressing keys you'll notice that the box isn't moving.
 
 ## TODO 6: Update `speedX` and `speedY` with the Keyboard
 
 **READ:**
-The box isn't moving yet because we initialized `speedX` and `speedY` to `0`. As long as `speedX` is `0`, the `walker` game item will not move along the x-axis. Same goes for `speedY` and the y-axis.
+The box isn't moving yet because we initialized the `speedX` and `speedY` properties to `0`. As long as `speedX` is `0`, the `walker` game item will not move along the x-axis. The same goes for `speedY` and the y-axis.
 
-When we press a key, we want the `walker` game item to move in that direction which we can accomplish by, for example, setting `speedX` to some positive number when the right arrow is pressed and setting to a negative value when the left arrow is pressed. Then, on the following `newFrame`, the position of the `walker` game item will be recalculated based on the the code we wrote in TODO 4.
+When we press a key, we want the `walker` game item to move in that direction which we can accomplish by, for example, setting the `speedX` propery to some positive number when the right arrow is pressed and setting to a negative value when the left arrow is pressed. Then, on the following `newFrame`, the position of the `walker` game item will be recalculated based on the the code we wrote in TODO 4.
 
 **CODE:**
 
-- **6a)** Modify your `handleKeyDown` function such that when the `KEY.LEFT` key is pressed, the `speedX` is set to `-5`:
+- **6a)** Modify your `handleKeyDown` function such that when the `KEY.LEFT` key is pressed, the `speedX` property is set to `-5`:
 
 ```js
 if (event.which === KEY.LEFT) {
-  speedX = -5;
+  walker.speedX = -5;
 }
 ```
 
@@ -282,7 +284,7 @@ Ideally, the `walker` game item would stop moving once we release the arrow key.
 
 **CODE:**
 
-- **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` variables to `0` whenever the arrow keys are released.
+- **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` properties to `0` whenever the arrow keys are released.
 
 ## TODO 8: Implement Borders
 
