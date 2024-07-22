@@ -122,6 +122,22 @@ Look at the code written under each header. Remember:
 - Core Logic: The main logic driving the program. Should delegate work to helper functions.
 - Helper Functions: functions that help implement the core logic.
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER. RIGHT CLICK ON THE SHAPE ON THE TOP LEFT AND CLICK INSPECT</b></h3>
+  <p align="center"><b>Do you see that it has the id of "walker"? Is the shape a circle?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU HAVE A CIRCLE WITH THE ID OF "walker"</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 2: Register Keyboard Inputs
 
 **FIND:**
@@ -153,13 +169,25 @@ function handleKeyDown(event) {
 
 <hr>
 
-> **TESTING:** Save your code and refresh your game. Open the running application in a new window (see below)
->
-> <img src='img/pop-into-new-window.png' height=400>
->
-> Open the console, then press keys to make sure that the events are properly being registered.
+> **TESTING:** Save your code and open with live server. Open the console, then press keys to make sure that the events are properly being registered.
 >
 > <img src='img/keycode-console.png'>
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND THE CONSOLE</b></h3>
+  <p align="center"><b>Do you see the keys being printed when they are pressed?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE KEYS BEING PRINTED IN THE CONSOLE</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 3: React to Specific Keycodes
 
@@ -188,6 +216,22 @@ Now that we know our `"keydown"` events are being handled, let's figure out exac
   Modify this function such that it can print out `"left pressed"` when the left arrow is pressed. Do the same for the other three arrow keys.
 
 > **TESTING:** Save your code and refresh your application in the other window. Test it to make sure that the right messages are being printed to the console.
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND THE CONSOLE</b></h3>
+  <p align="center"><b>Do you see the directions being printed when the keys are pressed?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE DIRECTIONS BEING PRINTED IN THE CONSOLE</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 4: Declare `walker` Variable
 
@@ -220,6 +264,10 @@ Because this involves variable declarations global to the project, it should go 
 
 - **4b)** Initialize each of the four properties of this object to hold the value `0`
 
+<br>
+<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
+<br>
+
 ## TODO 5: Declare Some Helper Functions
 
 **READ:**
@@ -251,7 +299,9 @@ Now that we have our data tracking in place, we need to use that data to actuall
 
 **HINT 3:** Keep in mind that you have an object storing your data this time. There are no "positionX", "speedX", ect. variables, so you will need to use the properties of your object.
 
-> Save your code and refresh the game. If you try pressing keys you'll notice that the box isn't moving.
+<br>
+<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
+<br>
 
 ## TODO 6: Update `speedX` and `speedY` with the Keyboard
 
@@ -274,6 +324,22 @@ if (event.which === KEY.LEFT) {
 
 > **Question: Why does the box only move diagonally after your press the keys?**
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION. REFRESH THE PAGE BETWEEN EACH TEST TO STOP THE DIAGONAL MOVEMENT</b></h3>
+  <p align="center"><b>Do you see the walker moving in the appropriate direction? Again, diagonal movment will occur if you don't refresh the page after pressing a key</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER MOVING IN THE DIRECTION OF THE ARROW KEYS</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 7: Reset `speedX` and `speedY` on `"keyup"`
 
 **READ:**
@@ -285,6 +351,22 @@ Ideally, the `walker` game item would stop moving once we release the arrow key.
 **CODE:**
 
 - **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` properties to `0` whenever the arrow keys are released. This will involve both creating the `handleKeyUp` event handler function and registering it.
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION</b></h3>
+  <p align="center"><b>Do you see the walker stopping when you release the arrow keys?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER STOPPING WHEN YOU RELEASE THE ARROW KEYS</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 8: Implement Borders
 
@@ -298,7 +380,25 @@ Your final task is to make sure that the walker object does not leave the board 
 
 - **8b)** Call your `wallCollision()` function from your `newFrame()` function. You will want to call it after `repositionGameItem()` but before `redrawGameItem()`.
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION</b></h3>
+  <p align="center"><b>Do you see the walker stopping when it reaches the edge of the board?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER STOPPING WHEN IT REACHES THE EDGE OF THE BOARD</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 # Challenge Ideas:
+
+Do these if you have time. They are not required, but it will help you out if you know how to do them. Hint hint.
 
 ## Add a second player that can be controlled with WASD
 
