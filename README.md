@@ -322,7 +322,7 @@ if (event.which === KEY.LEFT) {
 
 - **6b)** Do the same for the other 3 arrow keys.
 
-> **Question: Why does the box only move diagonally after your press the keys?**
+> **Question: Why does the box only move diagonally after your press the keys? Take a moment to think about it if you aren't sure. Understanding this can really help you with understanding game mechanics in general**
 
 <hr>
 
