@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Trigger workflow in asd-projects-template
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           curl -X POST https://api.github.com/repos/OperationSpark/asd-projects-template/dispatches \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.PAT }}" \
