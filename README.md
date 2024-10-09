@@ -398,7 +398,7 @@ Your final task is to make sure that the walker object does not leave the board 
 
 # Challenge Ideas:
 
-Do these if you have time. They are not required, but it will help you out if you know how to do them. Hint hint.
+Do these if you have time. They are not required, but it will help you out if you know how to do them.
 
 ## Add a second player that can be controlled with WASD
 
