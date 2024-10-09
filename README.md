@@ -414,7 +414,7 @@ var randomColor = "#000000".replace(/0/g, function () {
 });
 ```
 
-There are other, less cryptic ways to produce random numbers, and you should definitely try and figure them out on your own, but if you just want a random color, this will work.
+There are other, less cryptic ways to produce random numbers, and you are encouraged to research/experiment on your own, but if you just want a random color, this will work.
 
 ## Detect when the two players collide to make a "tag" game.
 

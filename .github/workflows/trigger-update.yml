@@ -9,16 +9,14 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger workflow in asd-projects-template
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update repository
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          curl -X POST https://api.github.com/repos/OperationSpark/asd-projects-template/dispatches \
-          -H "Accept: application/vnd.github.v3+json" \
-          -H "Authorization: token ${{ secrets.PAT }}" \
-          --data '{
-            "event_type": "update-${{ github.event.repository.name }}",
-            "client_payload": {
-              "repo": "${{ github.event.repository.name }}"
-            }
-          }'
+          git clone https://github.com/OperationSpark/asd-projects-template.git
+          cd asd-projects-template
+          # Make your updates here
+          git add .
+          git commit -m "Automated update from ${{ github.event.repository.name }}"
+          git push origin main
