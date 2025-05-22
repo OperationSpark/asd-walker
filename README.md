@@ -69,204 +69,350 @@ git push
 
 # Lesson Steps
 
-## TODO 1: Understand the Template and Change the Box
+## **TODO 1: Update the Box ID and Style**
 
-Let's begin by going through the existing code of the template and making a few minor changes
+🎯 **Goal:** Rename the box in your HTML to `walker` and customize its appearance with CSS.
 
-<hr>
+---
 
-### **File 1: The `index.html` file**
+### Step-by-Step Instructions
 
-The body only has 2 elements: the `#board` and a single `#gameItem`. It should look like this:
+1. **Update the HTML ID**
 
-```HTML
-<body>
-<div id='board'>
-    <div id='gameItem'></div>
-</div>
-</body>
-```
+   - Open `index.html`.
+   - Find the line that creates the game box:
+     ```html
+     <div id="gameItem"></div>
+     ```
+   - Change the `id` from `gameItem` to `walker`.
 
-This produces a basic game board with a single game item on the board. If you need/want to add more, then you will need to place them on the board.
+2. **Update the CSS Styles**
+   - Open `style.css`.
+   - Either modify the existing `#gameItem` styles, or create a new rule for `#walker`:
+     ```css
+     #walker {
+       width: 50px;
+       height: 50px;
+       background-color: green;
+     }
+     ```
+   - 🎨 Try customizing the walker’s color, size, or shape to make it unique!
 
-All elements will have unique `id` attributes, which means that you can select them using the appropriate CSS selectors whenever using jQuery or CSS.
+---
 
-- **1a)** Change the `id` of `'gameItem'` to be `'walker'`
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🔗 Matching IDs:</strong> The <code>id</code> you set in HTML must match the CSS selector used to apply styles. For example, an element with <code>id="walker"</code> should be styled using <code>#walker</code> in your CSS.<br><br>
+      <strong>🎨 Custom Styling:</strong> CSS allows you to change the walker’s size, color, and shape. Get creative and give your walker a unique appearance!<br><br>
+      <strong>💡 jQuery is Coming:</strong> In future steps, you’ll begin using <code>jQuery</code> to select and modify HTML elements using their IDs — just like in CSS. For example:  
+      <code>$("#walker")</code> selects the same element that <code>#walker</code> styles in CSS.
+    </td>
+  </tr>
+</table>
 
-> **NOTE:** When you do this, the box will no longer display. This will be remedied in the next step.
-
-<hr>
-
-### **File 2: The `index.css` file**
-
-The games we will build this semester will all use 2D graphics since we are limiting ourselves to HTML and CSS. Most of the shapes can be easily drawn as rectangles using the `width` and `height` properties.
-
-> Notice the values for the `position` properties set for the `#board` and the `#gameItem`. The parent element (`#board`) has the `position: relative` property while the child element (`#gameItem`) has the `position: absolute` property. This combo means that the child element can be placed anywhere inside the parent element by manipulating the `left` and `top` properties.
->
-> - `left` is the x-coordinate, or distance from the left
-> - `top` is the y-coordinate, or distance from the top
-
-Finally: Be aware that rectangles can be made into circles by adding a `border-radius` property.
-
-- **1b)** Change the id selector `#gameItem` to `#walker` so that it matches the HTML
-
-- **1c)** Add a `border-radius` property to the `#walker`. To make it a perfect circle, set the `border-radius` to the same value as the `width` and `height`. **You do not need to make it a perfect circle, but you do need at least a small bit of curvature.**
-
-<hr>
-
-### **File 3: The `index.js` file**
-
-Look at the code written under each header. Remember:
-
-- Setup: variable declarations, any one-off statements needed to start the program
-- Core Logic: The main logic driving the program. Should delegate work to helper functions.
-- Helper Functions: functions that help implement the core logic.
-
-<hr>
+---
 
 <br>
+
+### ✅ **Check Your Work!**
+
+- Your walker should now appear on the screen with your custom style.
+- If the walker disappears:
+  - Check that the ID in your HTML matches the selector in your CSS (`#walker`)
+  - Make sure your style changes were saved
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 2: Register Keyboard Inputs**
+
+🎯 **Goal:** Set up an event listener that runs a function whenever a key is pressed on the keyboard.
+
+---
+
+### Step-by-Step Instructions
+
+1. **Find the Setup Code**
+
+   - 🔍 Open `index.js`.
+   - Locate the **SETUP** section where jQuery is used to listen for events with this pattern:
+     ```js
+     $(document).on("...", handleEvent);
+     ```
+
+2. **Update the Event Type**
+
+   - Replace the event type with `"keydown"` so that it listens for key presses.
+
+3. **Update the Handler Function Name**
+
+   - Replace `handleEvent` with a new function name: `handleKeyDown`.
+   - This is the function that will run when a key is pressed.
+
+4. **Rename the Function**
+
+   - Find the existing `handleEvent` function definition in the **CORE LOGIC** section.
+   - Change the function name to `handleKeyDown`.
+
+5. **Log the Key Code**
+   - Inside `handleKeyDown`, use `console.log()` to print the numeric key code:
+     ```js
+     console.log(event.which);
+     ```
+   - This will help you confirm that key presses are being registered correctly.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🎮 Keyboard Events:</strong> You can detect key presses with jQuery using <code>$(document).on("keydown", callback)</code>.<br><br>
+      <strong>🔢 <code>event.which</code>:</strong> This gives you the numeric code of the key that was pressed (e.g. 37 for left arrow, 65 for "A"). You’ll use these codes later to control the walker’s movement.<br><br>
+      <strong>🧪 Console Logging:</strong> Always log values you don’t understand! Use <code>console.log(event.which)</code> to confirm your handler is working correctly.
+    </td>
+  </tr>
+</table>
+
+---
+
 <br>
+
+### ✅ **Check Your Work!**
+
+- Preview your game using **Live Server**, then open your browser’s **Console**.
+- Press keys and make sure numeric codes (like `37`, `38`, `40`, or `87`) show up in the console.
+- If nothing appears:
+  - Double-check that your event type is `"keydown"`
+  - Make sure the handler function is named `handleKeyDown` and used in both places
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 3: React to Specific Keys**
+
+🎯 **Goal:** Create a `KEY` object to store key codes and use `if` statements to react to arrow key presses.
+
+---
+
+### Step-by-Step Instructions
+
+1. **Create a `KEY` Object**
+
+   - 🔍 In the **SETUP** section of `index.js`, create a constant called `KEY` that maps key names (like `LEFT`, `UP`, `RIGHT`, `DOWN`) to their numeric key codes.
+   - We'll give you the code for the **Enter** key, but you'll need to figure out the others on your own:
+     ```js
+     const KEY = {
+       ENTER: 13,
+       LEFT: ___,
+       UP: ___,
+       RIGHT: ___,
+       DOWN: ___,
+     };
+     ```
+   - 💡 Use the console from the last TODO or visit [keycode.info](https://keycode.info) to identify the correct values.
+
+2. **Update `handleKeyDown`**
+
+   - Inside the `handleKeyDown` function, write a series of `if` statements that respond to each arrow key.
+   - Example:
+     ```js
+     if (event.which === KEY.LEFT) {
+       console.log("left pressed");
+     }
+     ```
+   - Repeat for `KEY.UP`, `KEY.RIGHT`, and `KEY.DOWN`.
+
+3. **Test Your Key Bindings**
+   - Open the console and press each arrow key.
+   - You should see the appropriate direction printed for each one.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🧪 Use Your Console:</strong> Add a <code>console.log(event.which)</code> inside your <code>handleKeyDown</code> function and press keys to discover their codes.<br><br>
+      <strong>🔗 Need Help?</strong> Visit <a href="https://keycode.info" target="_blank">keycode.info</a> and press keys on your keyboard to see their numeric codes.<br><br>
+      <strong>✅ Clean Code Tip:</strong> Using a <code>KEY</code> object with named properties makes your logic easier to understand and avoids “magic numbers.”
+    </td>
+  </tr>
+</table>
+
+---
+
 <br>
+
+### ✅ **Check Your Work!**
+
+- Use Live Server and open the **Console**.
+- Press each arrow key. You should see:
+  - `"left pressed"` for ←
+  - `"up pressed"` for ↑
+  - `"right pressed"` for →
+  - `"down pressed"` for ↓
+- If not:
+  - Check your `KEY` values and spelling
+  - Confirm your `if` statements are using `event.which`
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 4: Declare `walker` Variable**
+
+🎯 **Goal:** Create an object to store the walker's position and speed on the screen.
+
+---
+
+### Step-by-Step Instructions
+
+1. **Create a Global `walker` Variable**
+
+   - 🔍 Scroll to the **SETUP** section in `index.js`.
+   - Declare a variable named `walker`.
+
+2. **Assign an Object to `walker`**
+
+   - The `walker` variable should store an object.
+   - This object will represent the current state of your game character and should include the following properties:
+     - `x` — horizontal position (left/right)
+     - `y` — vertical position (up/down)
+     - `speedX` — horizontal speed
+     - `speedY` — vertical speed
+
+3. **Initialize All Values to `0`**
+   - Each property in the object should start with a value of `0`.
+   - ✅ If you’re not sure about syntax, think back to how objects were created in the data shapes project.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🧱 Game State Objects:</strong> In JavaScript, objects are used to group related data together. Here, the <code>walker</code> object stores position and movement information.<br><br>
+      <strong>📍 <code>x</code> and <code>y</code>:</strong> These represent the walker’s current location in pixels from the top-left corner of the screen.<br><br>
+      <strong>💨 <code>speedX</code> and <code>speedY</code>:</strong> These represent how much to change the walker’s position on each update. They will eventually be adjusted by keyboard input.
+    </td>
+  </tr>
+</table>
+
+---
+
 <br>
 
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER. RIGHT CLICK ON THE SHAPE ON THE TOP LEFT AND CLICK INSPECT</b></h3>
-  <p align="center"><b>Do you see that it has the id of "walker"? Is the shape a circle?</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU HAVE A CIRCLE WITH THE ID OF "walker"</b></p>
+### ✅ **Check Your Work!**
+
+- Make sure you’ve declared a global variable called `walker` and assigned it an object with **four properties**: `x`, `y`, `speedX`, and `speedY`.
+- Each of these should start with a value of `0`.
+- Your program won’t crash yet if this is missing — but future steps **depend** on this structure being present and correct.
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 5: Update the Walker's Position in Code**
+
+🎯 **Goal:** Write a helper function that updates the walker’s location based on its current speed.
+
+---
+
+### 🔍 Preview: Updating Object Properties
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💭 Updating Object Values
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      In the <strong>Bouncing Box</strong> project, you moved the box like this:<br><br>
+      <code>positionX = positionX + speed;</code><br><br>
+      That worked because each value was stored in its own variable.<br><br>
+      In this project, we’re storing all of that data in a single object called <code>walker</code>.<br><br>
+      So instead of <code>positionX</code>, we now update <code>walker.x</code>.<br>
+      And instead of <code>speed</code>, we use <code>walker.speedX</code>.<br><br>
+      🧠 It’s the same pattern — we’re just working inside an object.
+    </td>
+  </tr>
+</table>
+
+---
+
+### Step-by-Step Instructions
+
+1. **Define the Function**
+
+   - 🔍 Scroll to the **HELPER FUNCTIONS** section in `index.js`.
+   - Create a function called `repositionGameItem()`.
+
+2. **Update the Walker’s `x` and `y` Properties**
+
+   - Inside your function, add the horizontal speed to the x-position.
+   - Then add the vertical speed to the y-position.
+   - Be sure to use **dot notation** to update both values within the `walker` object.
+
+3. **Call the Function from `newFrame`**
+   - Inside the `newFrame` function, call `repositionGameItem()` so that the position updates continuously as the game runs.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🧱 Object Access:</strong> To update a value inside an object, use dot notation — for example, change a property like <code>walker.x</code> based on its current value and speed.<br><br>
+      <strong>📦 Stored State:</strong> The object <code>walker</code> stores the character’s position and speed. You’re not moving anything on screen yet — just updating the stored data.<br><br>
+      <strong>🔄 Real-Time Updates:</strong> Since <code>newFrame()</code> runs many times per second, calling this function there means your walker’s position will change continuously over time.
+    </td>
+  </tr>
+</table>
+
+---
 
 <br>
-<br>
-<br>
-<br>
 
-## TODO 2: Register Keyboard Inputs
+### ✅ **Check Your Work!**
 
-**FIND:**
-Open the `index.js` file.
-
-Our first task is to make our game register `"keydown"` events and respond to them. We'll keep the response simple for now until we know that our code is working.
-
-In the SETUP section, find where the event handler's are registered (`$(document).on('eventType', handleEvent)`.
-
-**CODE:**
-
-- **2a)** Modify the code such that, instead of calling `handleEvent`, it calls a different function: `handleKeyDown`.
-- **2b)** Make sure that it is called in response to `"keydown"` events.
-- **2c)** Find the event handler function `handleEvent` and change its name to `handleKeyDown`. Inside, add a `console.log()` statement to its `{code block}` that prints the keycode of the key pressed:
-
-Together, these components will look like this:
-
-```js
-// SETUP...
-$(document).on('keydown', handleKeyDown);
-
-// CORE LOGIC...
-function handleKeyDown(event) {
-  console.log(???);
-}
-```
-
-> > **HINT:** How do you know _which_ key was pressed from the given `event` object? Check out <a href=https://keycode.info/>keycode.info</a> for help!
-
-<hr>
-
-> **TESTING:** Save your code and open with live server. Open the console, then press keys to make sure that the events are properly being registered.
->
-> <img src='img/keycode-console.png'>
-
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND THE CONSOLE</b></h3>
-  <p align="center"><b>Do you see the keys being printed when they are pressed?</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE KEYS BEING PRINTED IN THE CONSOLE</b></p>
-
-<br>
-<br>
-<br>
-<br>
-
-## TODO 3: React to Specific Keycodes
-
-Now that we know our `"keydown"` events are being handled, let's figure out exactly _which_ keys are being pressed.
-
-- **3a)** Declare a new _constant variable_ `KEY` in the SETUP section and assign an Object to it. The object should map the following keys: `"LEFT"`, `"UP"`, `"RIGHT"`, `"DOWN"`, to their respective keycodes. For example, the keycode for the _Enter_ key is `13`:
-
-  Example:
-
+- You should now have:
+  - A new function called `repositionGameItem()`
+  - A call to that function inside `newFrame()`
+- Try temporarily assigning a number to `walker.speedX` or `walker.speedY` and use:
   ```js
-  var KEY = {
-    ENTER: 13,
-  };
+  console.log(walker.x, walker.y);
   ```
+  to check if the values are changing correctly each frame.
 
-- **3b)** Now, modify your `handleKeyDown` function such that it can react differently to our target keys. For example, if I wanted to print out `"enter pressed"` when the _Enter_ key is pressed, I could write:
+<!-- 4 line breaks between TODOs -->
 
-  ```js
-  function handleKeyDown(event) {
-    if (event.which === KEY.ENTER) {
-      console.log("enter pressed");
-    }
-  }
-  ```
-
-  Modify this function such that it can print out `"left pressed"` when the left arrow is pressed. Do the same for the other three arrow keys.
-
-> **TESTING:** Save your code and refresh your application in the other window. Test it to make sure that the right messages are being printed to the console.
-
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND THE CONSOLE</b></h3>
-  <p align="center"><b>Do you see the directions being printed when the keys are pressed?</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE DIRECTIONS BEING PRINTED IN THE CONSOLE</b></p>
-
-<br>
-<br>
-<br>
-<br>
-
-## TODO 4: Declare `walker` Variable
-
-Now that we can determine which keys are being pressed, we can move on to the problem of moving the `walker` game item.
-
-This is actually a problem we've already solved in **Bouncing Box**. To move the box, we needed the following data:
-
-```js
-var positionX = 0; // the x-coordinate location for the box
-var speedX = 0; // the speed for the box along the x-axis
-```
-
-> NOTE: The above code was for _Bouncing Box_, not for Walker, but the idea is similar.
->
-> For this project, we want to be able to move along the x-axis _AND_ the y-axis.
-
-**FIND:**
-Because this involves variable declarations global to the project, it should go up in the SETUP section.
-
-**CODE:**
-
-- **4a)** Declare a variable for the `walker` game item (feel free to name the variable `walker` as well). This variable will need to store an object such that we can monitor and control the following information:
-
-  - the x-coordinate location
-  - the y-coordinate location
-  - the speed along the x-axis
-  - the speed along the y-axis
-    <br>
-    <br>
-
-- **4b)** Initialize each of the four properties of this object to hold the value `0`
-
-<br>
-<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
-<br>
+<br><br><br><br>
 
 ## TODO 5: Declare Some Helper Functions
 
