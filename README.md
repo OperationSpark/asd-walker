@@ -1,27 +1,37 @@
-# Box Walker
+# 🚶‍♂️ Box Walker
 
-Bouncing Box, but you control the box, and it doesn't bounce!
+Control a walking box using your arrow keys — it’s a simple concept with powerful coding lessons behind the scenes. This project builds on what you learned in **Bouncing Box** and introduces real-time interaction using the keyboard, movement logic, and basic collision detection.
+
+<img src="img/walker-demo.gif" alt="walker demo gif">
+
+---
+
+## What You'll Learn
+
+- Detecting and handling key presses in JavaScript
+- Creating and updating object properties to store game state
+- Using helper functions to organize game logic
+- Drawing elements dynamically with jQuery and CSS
+- Adding limits and rules with boundary detection
 
 **Table of Contents**
 
-- [Overview](#Overview)
-  - [Learning Objectives](#learning-objectives)
-  - [Project Grading](#project-grading)
-- [Lesson Steps](#lesson-steps)
-  - [TODO 1: Understand the Template and Change the Box](#todo-1-understand-the-template-and-change-the-box)
-  - [TODO 2: Register Keyboard Inputs](#todo-2-register-keyboard-inputs)
-  - [TODO 3: React to Specific Keycodes](#todo-3-react-to-specific-keycodes)
-  - [TODO 4: Declare `walker` Variable](#todo-4-declare-walker-variable)
-  - [TODO 5: Declare Some Helper Functions](#todo-5-declare-some-helper-functions)
-  - [TODO 6: Update `speedX` and `speedY` with the Keyboard](#todo-6-update-speedX-and-speedY-with-the-keyboard)
-  - [TODO 7: Reset `speedX` and `speedY` on `"keyup"`](#todo-7-reset-speedx-and-speedy-on-keyup)
-  - [TODO 8: Implement Borders`](#todo-8-implement-borders)
-  - [Challenge Ideas](#challenge-ideas)
-  - [Submit Your Work](#submit-your-work)
+- [Overview](#overview)
+- [Project Grading](#project-grading)
+- [TODO 0: Preview With Live Server](#todo-0-preview-with-live-server)
+- [TODO 1: Update the Box ID and Style](#todo-1-update-the-box-id-and-style)
+- [TODO 2: Register Keyboard Inputs](#todo-2-register-keyboard-inputs)
+- [TODO 3: React to Specific Keys](#todo-3-react-to-specific-keys)
+- [TODO 4: Declare `walker` Variable](#todo-4-declare-walker-variable)
+- [TODO 5: Update the Walker's Position in Code](#todo-5-update-the-walkers-position-in-code)
+- [TODO 6: Draw the Walker in the Correct Location](#todo-6-draw-the-walker-in-the-correct-location)
+- [TODO 7: Update Speed When Arrow Keys Are Pressed](#todo-7-update-speed-when-arrow-keys-are-pressed)
+- [TODO 8: Stop the Walker on Key Release](#todo-8-stop-the-walker-on-key-release)
+- [TODO 9: Prevent the Walker from Leaving the Board](#todo-9-prevent-the-walker-from-leaving-the-board)
+- [🌟 Extra Challenges](#-extra-challenges)
+- [📤 Submit Your Work](#-submit-your-work)
 
 # Overview
-
-<img src="img/walker-demo.gif">
 
 In this project we will be building a simple program that allows us to control the movement of a box with the arrow keys. As a challenge, try limiting the movement of the "walker" to the boundaries of the board. Then, add a second "walker" and turn the program into a game of tag!
 
@@ -68,6 +78,40 @@ git push
   **NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but these challenges will help you out much later if you can do them.
 
 # Lesson Steps
+
+## **TODO 0: Preview Your Site with Live Server**
+
+🎯 **Goal:** Preview your walker game in the browser to see how it looks and behaves as you make changes.
+
+---
+
+### Step-by-Step Instructions
+
+There are two ways to open your project with **Live Server**:
+
+#### **Option 1: Right-Click Method**
+
+1. 📂 Find the `index.html` file in your file tree.
+2. Right-click and choose **“Open with Live Server.”**
+
+#### **Option 2: Bottom Panel Button**
+
+1. 👀 Look at the bottom-right corner of your screen in VS Code.
+2. Click the **“Go Live”** button to launch Live Server.
+
+---
+
+### ✅ **Check Your Work!**
+
+- Access your walker project through the correct link on your Portfolio page.
+- You should see your box (the "walker") appear on the screen.
+- If you don’t see anything:
+  - Check your HTML and CSS for typos.
+  - Open the browser **console** to look for errors.
+
+<!-- 4 line breaks between TODOS -->
+
+<br><br><br><br>
 
 ## **TODO 1: Update the Box ID and Style**
 
@@ -414,145 +458,269 @@ git push
 
 <br><br><br><br>
 
-## TODO 5: Declare Some Helper Functions
+## **TODO 6: Draw the Walker in the Correct Location**
 
-**READ:**
-Now that we have our data tracking in place, we need to use that data to actually move the `walker` game item on each `update`. This is a problem solved in Bouncing Box.
+🎯 **Goal:** Write a helper function that visually moves the walker using its `x` and `y` values.
 
-> > **REMINDER:** The below code snippets are taken directly from _Bouncing Box_ and are not the exact code that you should use here. They are merely _examples_ of how to solve a similar but simpler problem.
->
-> To reposition the box in Bouncing Box we wrote:
->
-> ```js
-> positionX += speedX; // update the position of the box along the x-axis
-> ```
->
-> And to redraw the box in the new x-location we wrote:
->
-> ```js
-> $("#box").css("left", positionX); // draw the box in the new location, positionX pixels away from the "left"
-> ```
+---
 
-**CODE:**
+### Step-by-Step Instructions
 
-- **5a)** In the HELPER FUNCTIONS section, declare two new functions called `repositionGameItem()` and `redrawGameItem()`.
-- **5b)** Reference the code above to complete these two functions such that they can reposition and redraw the GameItem to move along the x-axis AND the y-axis.
-- **5c)** Call each function on each `newFrame`.
+1. **Define the `redrawGameItem()` Function**
 
-**HINT 1:** Use the `"top"` CSS property to draw the box `y` pixels from the `"top"`
+   - 🔍 In the **HELPER FUNCTIONS** section of `index.js`, create a new function named `redrawGameItem()`.
 
-**HINT 2:** Check what the id of the GameItem is for your jQuery statements.
+2. **Use jQuery to Draw the Walker**
 
-**HINT 3:** Keep in mind that you have an object storing your data this time. There are no "positionX", "speedX", ect. variables, so you will need to use the properties of your object.
+   - Inside your function, use jQuery’s `.css()` method to update the position of the walker element:
+     - Use the `"left"` CSS property to set the horizontal (x) position.
+     - Use the `"top"` CSS property to set the vertical (y) position.
+   - You’ll need to use the values stored in the `walker` object’s `x` and `y` properties.
 
-<br>
-<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
-<br>
+3. **Call the Function from `newFrame()`**
+   - At the bottom of the `newFrame()` function (after `repositionGameItem()`), call `redrawGameItem()`.
 
-## TODO 6: Update `speedX` and `speedY` with the Keyboard
+---
 
-**READ:**
-The box isn't moving yet because we initialized the `speedX` and `speedY` properties to `0`. As long as `speedX` is `0`, the `walker` game item will not move along the x-axis. The same goes for `speedY` and the y-axis.
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🎨 Using <code>.css()</code> to Move Elements:</strong> The <code>.css()</code> function in jQuery lets you change a style property on an element, like its position on the screen.<br><br>
+      <strong>↔️ <code>"left"</code> and <code>"top"</code>:</strong> These CSS properties control how far an element is from the top-left corner of the page, in pixels.<br><br>
+      <strong>🧠 Remember:</strong> You’re now updating the screen based on the walker’s <code>x</code> and <code>y</code> values — which are changing every frame.
+    </td>
+  </tr>
+</table>
 
-When we press a key, we want the `walker` game item to move in that direction which we can accomplish by, for example, setting the `speedX` propery to some positive number when the right arrow is pressed and setting to a negative value when the left arrow is pressed. Then, on the following `newFrame`, the position of the `walker` game item will be recalculated based on the the code we wrote in TODO 4.
-
-**CODE:**
-
-- **6a)** Modify your `handleKeyDown` function such that when the `KEY.LEFT` key is pressed, the `speedX` property is set to `-5`:
-
-```js
-if (event.which === KEY.LEFT) {
-  walker.speedX = -5;
-}
-```
-
-- **6b)** Do the same for the other 3 arrow keys.
-
-> **Question: Why does the box only move diagonally after your press the keys? Take a moment to think about it if you aren't sure. Understanding this can really help you with understanding game mechanics in general**
-
-<hr>
+---
 
 <br>
-<br>
-<br>
-<br>
 
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION. REFRESH THE PAGE BETWEEN EACH TEST TO STOP THE DIAGONAL MOVEMENT</b></h3>
-  <p align="center"><b>Do you see the walker moving in the appropriate direction? Again, diagonal movment will occur if you don't refresh the page after pressing a key</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER MOVING IN THE DIRECTION OF THE ARROW KEYS</b></p>
+### ✅ **Check Your Work!**
 
-<br>
-<br>
-<br>
-<br>
+- If you set `walker.speedX` or `walker.speedY` to a non-zero value, the walker should now move on screen when the page refreshes.
+- Try logging the position inside the function:
+  ```js
+  console.log("Walker position:", walker.x, walker.y);
+  ```
+- Confirm that you are:
+  - Setting the `"left"` property based on `walker.x`
+  - Setting the `"top"` property based on `walker.y`
 
-## TODO 7: Reset `speedX` and `speedY` on `"keyup"`
+<!-- 4 line breaks between TODOs -->
 
-**READ:**
+<br><br><br><br>
 
-We now have motion! However, the `walker` game item doesn't stop moving once we set it off. We need some way to stop it from moving.
+## **TODO 7: Update Speed When Arrow Keys Are Pressed**
 
-Ideally, the `walker` game item would stop moving once we release the arrow key. This `"keyup"` event can be listened for in the same way that the `"keydown"` event can be listened for.
+🎯 **Goal:** Change the walker’s speed when the player presses an arrow key so it starts moving in that direction.
 
-**CODE:**
+---
 
-- **7a)** Similar to the code that you've already written in TODO 5, set up your program to listen for `"keyup"` events and set the `speedX` and `speedY` properties to `0` whenever the arrow keys are released. This will involve both creating the `handleKeyUp` event handler function and registering it.
+### Step-by-Step Instructions
 
-<hr>
+1. **Edit the `handleKeyDown` Function**
 
-<br>
-<br>
-<br>
-<br>
+   - 🔍 Scroll to your `handleKeyDown` function in the CORE LOGIC section of `index.js`.
 
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION</b></h3>
-  <p align="center"><b>Do you see the walker stopping when you release the arrow keys?</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER STOPPING WHEN YOU RELEASE THE ARROW KEYS</b></p>
+2. **Set Speed for Arrow Keys**
 
-<br>
-<br>
-<br>
-<br>
+   - Use `if` statements to check which arrow key was pressed.
+   - When the LEFT arrow is pressed, update `walker.speedX` to `-5` to move left.
+   - 🔄 Use your understanding from Bouncing Box and earlier TODOs to handle the other three arrow keys yourself.
 
-## TODO 8: Implement Borders
+3. **Test Movement**
+   - Open your project with Live Server and press an arrow key.
+   - You should see the walker begin to move in that direction.
+   - Try refreshing the page between tests — the walker will continue moving after the first key press unless you reset the speed manually.
 
-Your final task is to make sure that the walker object does not leave the board area.
+---
 
-**CODE:**
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🎮 Real-Time Control:</strong> When a key is pressed, the program updates <code>walker.speedX</code> or <code>walker.speedY</code>. These values affect how much <code>x</code> and <code>y</code> change on each frame.<br><br>
+      <strong>↔️ Direction = Sign:</strong> Negative values move the walker left or up; positive values move the walker right or down.<br><br>
+      <strong>📍 Persistent Movement:</strong> Because the speed stays set until changed again, the walker will keep moving in the last direction — even after the key is released.
+    </td>
+  </tr>
+</table>
 
-- **8a)** Make a helper function called `wallCollision()`. In this function, use conditionals to prevent the walker object from leaving the board. You may use `$("#board").width()` and `$("#board").height()` to get the x coordinate of the right wall and the y coordinate of the bottom wall, respctively. You may hardcode the coordinates of the left and top walls as `0`.
-
-**HINT:** Do not reverse the speed if there is a collision, as this will make your object bounce. Instead, simply subtract the speed from its current position.
-
-- **8b)** Call your `wallCollision()` function from your `newFrame()` function. You will want to call it after `repositionGameItem()` but before `redrawGameItem()`.
-
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-
-  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND TEST EACH DIRECTION</b></h3>
-  <p align="center"><b>Do you see the walker stopping when it reaches the edge of the board?</b></p>
-  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE WALKER STOPPING WHEN IT REACHES THE EDGE OF THE BOARD</b></p>
+---
 
 <br>
+
+### ✅ **Check Your Work!**
+
+- Open your Live Server preview and press the arrow keys one at a time.
+- The walker should move in the correct direction.
+- **Refresh between tests** — your speed is not reset unless you manually set it back to `0`.
+- Ask yourself:
+  - Do all four directions work?
+  - Do you understand why diagonal movement occurs if you press two keys in a row?
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 8: Stop the Walker on Key Release**
+
+🎯 **Goal:** Use a new event listener to reset the walker’s speed when a key is released.
+
+---
+
+### Step-by-Step Instructions
+
+1. **Register a New Event Listener**
+
+   - 🔍 Scroll to the SETUP section of your code.
+   - Add another line to register a second key event — this one should listen for `"keyup"` events.
+   - Just like `"keydown"`, you’ll need to write:
+     - **what** event you're listening for (`"keyup"`),
+     - and **what function** should handle it (e.g., `handleKeyUp`).
+   - ✅ Make sure this line matches the structure of your existing `"keydown"` registration — but don’t reuse the same handler function!
+
+2. **Create the `handleKeyUp()` Function**
+
+   - 🔍 Add a new function below `handleKeyDown()` and name it `handleKeyUp`.
+   - Make sure to include the `event` parameter in the function definition.
+   - Inside the function:
+     - Use `if` statements to check if the released key is one of the arrow keys.
+     - Set the appropriate speed property (either `speedX` or `speedY`) to `0` based on which key was released.
+
+3. **Test Each Key**
+   - Open your game in Live Server.
+   - Try holding down the arrow keys, then releasing them.
+   - The walker should **start moving** when a key is pressed, and **stop** when the key is released.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🧠 Two Listeners, Two Handlers:</strong> You now need two separate event listeners — one for <code>"keydown"</code> and one for <code>"keyup"</code>. Each should point to a separate function (<code>handleKeyDown</code> and <code>handleKeyUp</code>).<br><br>
+      <strong>🔁 Resetting Speed:</strong> When a key is released, setting <code>speedX</code> or <code>speedY</code> to <code>0</code> tells the game to stop updating the position along that axis.
+    </td>
+  </tr>
+</table>
+
+---
+
 <br>
+
+### ✅ **Check Your Work!**
+
+- Try holding down and releasing each arrow key.
+- The walker should:
+  - Start moving when the key is pressed,
+  - Stop moving when the key is released.
+- Refresh your game and test each direction again to make sure both speed values are reset.
+
+<!-- 4 line breaks between TODOs -->
+
+<br><br><br><br>
+
+## **TODO 9: Prevent the Walker from Leaving the Board**
+
+🎯 **Goal:** Stop the walker from leaving the visible game board by creating a boundary detection function.
+
+---
+
+### Step-by-Step Instructions
+
+1. **Create a Helper Function**
+
+   - 🔍 In the HELPER FUNCTIONS section, create a function named `wallCollision()`.
+
+2. **Write Boundary Conditions**
+
+   - Inside the `wallCollision()` function:
+     - Use `if` statements to check if the `walker` object is moving the object beyond the game board edges.
+     - Recall that the walker’s `x` and `y` properties represent its position on the screen.
+     - Use `0` as the minimum (left/top) value for each direction.
+     - Use `$("#board").width()` for the maximum horizontal boundary, and `$("#board").height()` for the maximum vertical boundary.
+     - If a boundary is crossed, subtract the walker’s speed in that direction to "undo" the movement.
+
+3. **Call the Function in `newFrame()`**
+   - Inside your `newFrame()` function:
+     - Call `wallCollision()` after `repositionGameItem()`, but before `redrawGameItem()`.
+
+---
+
+<table style="width: 80%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 15px; background-color: #2c2c2c; border: 1px solid #444; border-radius: 8px; overflow: hidden;">
+  <tr>
+    <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
+      💡 Review Important Concepts
+    </th>
+  </tr>
+  <tr>
+    <td style="padding: 10px; color: #e2e2e2;">
+      <strong>🧱 Borders of the Game Board:</strong><br>
+      - The left and top borders are at <code>0</code>.<br>
+      - The right border is <code>$("#board").width()</code>.<br>
+      - The bottom border is <code>$("#board").height()</code>.<br><br>
+      <strong>🚫 Preventing Escape:</strong><br>
+      Instead of reversing the speed (which would cause bouncing), "undo" the last movement by subtracting the speed:<br>
+      <code>walker.x -= walker.speedX;</code><br>
+      <code>walker.y -= walker.speedY;</code><br><br>
+      <strong>📐 Make sure:</strong><br>
+      You are checking <em>both</em> edges on each axis: left/right for x, top/bottom for y.
+    </td>
+
+  </tr>
+</table>
+
+---
+
 <br>
-<br>
 
-# Challenge Ideas:
+### ✅ **Check Your Work!**
 
-Do these if you have time. They are not required, but it will help you out if you know how to do them.
+- Open Live Server and try moving the walker in all directions.
+- Confirm the walker:
+  - **Stops** at the left, right, top, and bottom edges of the board.
+  - No longer escapes off-screen or gets stuck.
+- If the walker bounces back or jitters at the edge, revisit the logic for "undoing" movement (don't reverse speed).
 
-## Add a second player that can be controlled with WASD
+<!-- 4 line breaks between TODOs -->
 
-What will you need to add to the setup area? What will you need to add to the core logic? What new helper functions will you need?
+<br><br><br><br>
 
-## Make the player(s) change color when clicked on
+## 🌟 Extra Challenges
 
-If you want the colors to be random, you can produce a random color with the following code:
+These challenges are optional — but they’ll push your coding skills further and help you become more comfortable with JavaScript game logic. Try them out if you finish early or want to extend your project!
+
+---
+
+### 🧍 Add a Second Player Controlled with WASD
+
+- Create a new walker object with its own position and speed properties.
+- Register a new set of keys (`W`, `A`, `S`, `D`) in your `KEY` object.
+- Create a second set of event handlers and movement logic.
+- Can both players move independently? How will you keep track of their positions?
+
+---
+
+### 🎨 Make the Player(s) Change Color on Click
+
+Use jQuery’s `.css()` function and an event listener to change a walker’s color when it is clicked.
+
+To generate a random color, you can use:
 
 ```js
 var randomColor = "#000000".replace(/0/g, function () {
@@ -560,18 +728,32 @@ var randomColor = "#000000".replace(/0/g, function () {
 });
 ```
 
-There are other, less cryptic ways to produce random numbers, but if you just want a random color, this will work. However, you may use other methods of changing colors as well.
+> 🔎 Not a fan of that one-liner? Try experimenting with simpler random RGB values!
 
-## Detect when the two players collide to make a "tag" game.
+---
 
-After the two players collide, make the player who is "it" turn red and move each player to the opposite corners of the screen. Try making the "it" player have a slightly slower speed so that the other player can escape more easily (and maybe make the board bigger).
+### 🏷️ Create a “Tag” Game with Collision Detection
 
-# Submit Your Work
+- Detect when the two players overlap on the board.
+- Use conditional logic to detect collision (hint: compare their `x` and `y` positions).
+- Make the "it" player turn red when tagging the other.
+- Add game reset logic and tweak player speeds to create balance.
 
-Submit your work regularly. Because these files are already being tracked by your GitHub repo, you can skip the "git add" step. Instead, enter the following commands:
+> 💡 Want to go even further? Add scorekeeping, countdown timers, or a shrinking playfield!
 
-> git commit -a -m "saving walker"
->
-> git push
+---
 
-Congratulations on completing Walker!
+<br>
+
+## 📤 Submit Your Work
+
+Make sure you save and submit your work regularly. These files are already being tracked by your GitHub repo, so you can commit and push with the following commands:
+
+```bash
+git commit -a -m "Finished Walker project"
+git push
+```
+
+✅ Once you’ve pushed your changes, check GitHub to confirm your updates appear in the repository.
+
+🎉 Congratulations on finishing the Walker project!
