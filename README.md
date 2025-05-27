@@ -29,7 +29,7 @@ Whether you’re aiming to create your first multiplayer experience, explore tag
 **Table of Contents**
 
 - [Overview](#overview)
-- [Project Grading](#project-grading)
+- [Requirements and Grading](#requirements-and-grading)
 - [TODO 0: Preview With Live Server](#todo-0-preview-your-site-with-live-server)
 - [TODO 1: Update the Box ID and Style](#todo-1-update-the-box-id-and-style)
 - [TODO 2: Register Keyboard Inputs](#todo-2-register-keyboard-inputs)
