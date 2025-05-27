@@ -1,6 +1,18 @@
 # 🚶‍♂️ Box Walker
 
-Control a walking box using your arrow keys — it’s a simple concept with powerful coding lessons behind the scenes. This project builds on what you learned in **Bouncing Box** and introduces real-time interaction using the keyboard, movement logic, and basic collision detection.
+Control a box with your arrow keys! It might seem simple, but this project will deepen your understanding of animation, keyboard input, and object-based game logic.
+
+You’ll take what you learned in **Bouncing Box** and level it up by:
+
+- Responding to real-time keyboard events
+- Tracking and updating position using an object
+- Moving and drawing with jQuery
+- Adding game rules like screen boundaries
+- Laying the groundwork for more interactive games
+
+Whether you’re aiming to create your first multiplayer experience, explore tag mechanics, or build your own arcade-style game — this is where it starts.
+
+🕹️ Time to move!
 
 <img src="img/walker-demo.gif" alt="walker demo gif">
 
@@ -18,7 +30,7 @@ Control a walking box using your arrow keys — it’s a simple concept with pow
 
 - [Overview](#overview)
 - [Project Grading](#project-grading)
-- [TODO 0: Preview With Live Server](#todo-0-preview-with-live-server)
+- [TODO 0: Preview With Live Server](#todo-0-preview-your-site-with-live-server)
 - [TODO 1: Update the Box ID and Style](#todo-1-update-the-box-id-and-style)
 - [TODO 2: Register Keyboard Inputs](#todo-2-register-keyboard-inputs)
 - [TODO 3: React to Specific Keys](#todo-3-react-to-specific-keys)
@@ -52,30 +64,19 @@ git commit -m "saving walker"
 git push
 ```
 
-## Project Grading
+## **Requirements and Grading**
 
-### Best Practices (25 points)
-
-1. All code in proper sections (setup, core, helpers, etc.) - 5 points
-2. Use comments to describe setup and functions - 10 points
-3. Use helper functions to separate concerns - 10 points
-
-**NOTE:** Incomplete programs will receive partial credit based on the number of TODOs completed with the above best practices in place.
-
-### Program Progress (75 points)
-
-- TODO 1 - 5 points
-- TODO 2 - 10 points
-- TODO 3 - 10 points
-- TODO 4 - 10 points
-- TODO 5 - 10 points
-- TODO 6 - 10 points
-- TODO 7 - 10 points
-- TODO 8 - 10 points
-- Challenge 1 - 5 points (bonus)
-- Challenge 2 - 5 points (bonus)
-- Challenge 3 - 10 points (bonus)
-  **NOTE:** the bonus will not give you a score of over 100 should you earn that many points, but these challenges will help you out much later if you can do them.
+| Requirement                                  | Description                                                     | Points  |
+| -------------------------------------------- | --------------------------------------------------------------- | ------- |
+| **Follow coding best practices**             | Clear formatting, comments, and use of helper functions         | 15      |
+| **Correctly update the walker ID and style** | Update HTML and CSS to rename and restyle the game box          | 5       |
+| **Handle key press and release events**      | Use `keydown`/`keyup` with appropriate event handler functions  | 15      |
+| **Create and update game state object**      | Store position and speed values in an object called `walker`    | 10      |
+| **Use helper functions to manage movement**  | Implement `repositionGameItem` and `redrawGameItem`             | 10      |
+| **Connect movement to key input**            | Change speed values using key codes and `KEY` constants         | 10      |
+| **Stop movement with key release**           | Use `keyup` to reset speed values appropriately                 | 10      |
+| **Add boundary logic**                       | Prevent the walker from escaping the board with `wallCollision` | 15      |
+|                                              | **Total**                                                       | **100** |
 
 # Lesson Steps
 
@@ -105,9 +106,6 @@ There are two ways to open your project with **Live Server**:
 
 - Access your walker project through the correct link on your Portfolio page.
 - You should see your box (the "walker") appear on the screen.
-- If you don’t see anything:
-  - Check your HTML and CSS for typos.
-  - Open the browser **console** to look for errors.
 
 <!-- 4 line breaks between TODOS -->
 
